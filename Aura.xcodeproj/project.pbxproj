@@ -145,6 +145,7 @@
 		2EBE511B236719FF0083BC80 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2F987648216F40BD00CCA527 /* DeviceViewModel.swift */,
 				2F98763E216E4A7000CCA527 /* ConnectDeviceViewController.swift */,
 				2F987646216F3F7400CCA527 /* DeviceTableViewCell.swift */,
 			);
@@ -176,6 +177,60 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		2EBE5129236749040083BC80 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				2EBE512B2367494B0083BC80 /* View */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		2EBE512A236749200083BC80 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2F98765B216F766800CCA527 /* TrackingPresenter.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2EBE512B2367494B0083BC80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F98765E216F775700CCA527 /* ReportViewController.swift */,
+				2F987660216F7EA300CCA527 /* ReportCollectionCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2EBE512C236749530083BC80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F987663216F8EDD00CCA527 /* ReportAdvancedViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2EBE512D236749600083BC80 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2F987650216F4E5100CCA527 /* MockConnectionDeviceRepository.swift */,
+				2F987652216F4F6600CCA527 /* ConnectionDeviceDecorator.swift */,
+				2F98764A216F423600CCA527 /* ConnectionDevicePresenter.swift */,
+				2F98764C216F4B1A00CCA527 /* Device.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2EBE512E236749A10083BC80 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2F819AA3216BA2F200E8628F /* SignInPresenter.swift */,
+				2F98763B216E46D600CCA527 /* MockSignInRepositoryImpl.swift */,
+				2EBE511F236723440083BC80 /* SignInRepositoryImpl.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		2F819A74216B83CF00E8628F = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +254,6 @@
 		2F819A7F216B83CF00E8628F /* Aura */ = {
 			isa = PBXGroup;
 			children = (
-				2EBE5123236734950083BC80 /* Providers */,
 				2F819A80216B83CF00E8628F /* AppDelegate.swift */,
 				2EBE5121236734240083BC80 /* AuraModule.swift */,
 				2F98765D216F774100CCA527 /* Report */,
@@ -207,6 +261,7 @@
 				2F98763D216E4A5C00CCA527 /* Connection */,
 				2F819AA2216BA2E500E8628F /* Authentication */,
 				2EBE51122366F2B60083BC80 /* Supporting Files */,
+				2EBE5123236734950083BC80 /* Providers */,
 				2F987634216E067400CCA527 /* BaseViewController.swift */,
 				2F819A84216B83CF00E8628F /* Main.storyboard */,
 				2F819A89216B83D000E8628F /* LaunchScreen.storyboard */,
@@ -230,10 +285,8 @@
 		2F819AA2216BA2E500E8628F /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				2EBE512E236749A10083BC80 /* Core */,
 				2EBE511C23671A120083BC80 /* View */,
-				2F819AA3216BA2F200E8628F /* SignInPresenter.swift */,
-				2F98763B216E46D600CCA527 /* MockSignInRepositoryImpl.swift */,
-				2EBE511F236723440083BC80 /* SignInRepositoryImpl.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -241,12 +294,8 @@
 		2F98763D216E4A5C00CCA527 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				2EBE512D236749600083BC80 /* Core */,
 				2EBE511B236719FF0083BC80 /* View */,
-				2F987648216F40BD00CCA527 /* DeviceViewModel.swift */,
-				2F98764C216F4B1A00CCA527 /* Device.swift */,
-				2F98764A216F423600CCA527 /* ConnectionDevicePresenter.swift */,
-				2F987650216F4E5100CCA527 /* MockConnectionDeviceRepository.swift */,
-				2F987652216F4F6600CCA527 /* ConnectionDeviceDecorator.swift */,
 			);
 			path = Connection;
 			sourceTree = "<group>";
@@ -272,8 +321,8 @@
 		2F987658216F763500CCA527 /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
+				2EBE512A236749200083BC80 /* Core */,
 				2EBE511A236719F70083BC80 /* View */,
-				2F98765B216F766800CCA527 /* TrackingPresenter.swift */,
 			);
 			path = Tracking;
 			sourceTree = "<group>";
@@ -281,19 +330,18 @@
 		2F98765D216F774100CCA527 /* Report */ = {
 			isa = PBXGroup;
 			children = (
-				2F987662216F8EBD00CCA527 /* Report Advanced */,
-				2F98765E216F775700CCA527 /* ReportViewController.swift */,
-				2F987660216F7EA300CCA527 /* ReportCollectionCell.swift */,
+				2EBE5129236749040083BC80 /* Basic */,
+				2F987662216F8EBD00CCA527 /* Advanced */,
 			);
 			path = Report;
 			sourceTree = "<group>";
 		};
-		2F987662216F8EBD00CCA527 /* Report Advanced */ = {
+		2F987662216F8EBD00CCA527 /* Advanced */ = {
 			isa = PBXGroup;
 			children = (
-				2F987663216F8EDD00CCA527 /* ReportAdvancedViewController.swift */,
+				2EBE512C236749530083BC80 /* View */,
 			);
-			path = "Report Advanced";
+			path = Advanced;
 			sourceTree = "<group>";
 		};
 		389EAFA8059310FED69E4095 /* Pods */ = {

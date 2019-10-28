@@ -1,6 +1,6 @@
 import Foundation
 
-class ConnectionDeviceViewDecorator : ConnectionDeviceView{
+final class ConnectionDeviceViewDecorator : ConnectionDeviceView{
     private var iView: ConnectionDeviceView
     init(_ iView: ConnectionDeviceView) {
         self.iView = iView
@@ -19,7 +19,7 @@ class ConnectionDeviceViewDecorator : ConnectionDeviceView{
     }
 }
 
-class ConnectionDevicePresenterDecorator : ConnectionDevicePresenter {
+final class ConnectionDevicePresenterDecorator : ConnectionDevicePresenter {
     private var iPresenter: ConnectionDevicePresenterImpl
     init(_ iPresenter: ConnectionDevicePresenterImpl) {
         self.iPresenter = iPresenter

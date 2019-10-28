@@ -14,6 +14,11 @@ final class AuraModule {
     static func connectDeviceViewController() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: ConnectDeviceViewController.self)) as! ConnectDeviceViewController
+        let presenter = ConnectionDevicePresenterImpl(
+            iView: ConnectionDeviceViewDecorator(viewController),
+            iRepository: RepositoryProviders.provideConnectionDeviceRepository()
+        )
+        viewController.presenter = ConnectionDevicePresenterDecorator(presenter)
         viewController.router = router
         return viewController
     }
