@@ -1,0 +1,20 @@
+PODS:
+  - Segmentio (4.1)
+  - Toast-Swift (5.0.0)
+
+DEPENDENCIES:
+  - Segmentio
+  - Toast-Swift
+
+SPEC REPOS:
+  trunk:
+    - Segmentio
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  Segmentio: ab29def64e1bff6e6e9b97671788a99bed3f1d9f
+  Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
+
+PODFILE CHECKSUM: 7da171b804f077b207001e1362d90f3bc4523979
+
+COCOAPODS: 1.8.4

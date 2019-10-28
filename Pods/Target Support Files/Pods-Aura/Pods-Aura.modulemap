@@ -1,0 +1,6 @@
+framework module Pods_Aura {
+  umbrella header "Pods-Aura-umbrella.h"
+
+  export *
+  module * { export * }
+}
