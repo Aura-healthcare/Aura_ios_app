@@ -7,15 +7,15 @@ class ConnectionDeviceViewDecorator : ConnectionDeviceView{
     }
     
     func scanHasBeenStopped() {
-        DispatchQueue.main.async { self.iView.scanHasBeenStopped() }
+        DispatchQueue.main.async { [weak self] in self?.iView.scanHasBeenStopped() }
     }
     
     func scanHasBeenLaunched() {
-        DispatchQueue.main.async { self.iView.scanHasBeenLaunched() }
+        DispatchQueue.main.async { [weak self] in self?.iView.scanHasBeenLaunched() }
     }
     
     func devicesFounded(devices: [DeviceViewModel]) {
-        DispatchQueue.main.async { self.iView.devicesFounded(devices: devices) }
+        DispatchQueue.main.async { [weak self] in self?.iView.devicesFounded(devices: devices) }
     }
 }
 
@@ -26,8 +26,8 @@ class ConnectionDevicePresenterDecorator : ConnectionDevicePresenter {
     }
     
     func scan() {
-        DispatchQueue.global(qos: .background).async {
-            self.iPresenter.scan()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.iPresenter.scan()
         }
     }
 }

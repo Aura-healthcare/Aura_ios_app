@@ -11,6 +11,11 @@
 		2EBE51142366F2CA0083BC80 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE51132366F2CA0083BC80 /* Colors.swift */; };
 		2EBE5117236714AC0083BC80 /* UtilExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5116236714AC0083BC80 /* UtilExtension.swift */; };
 		2EBE5119236714EC0083BC80 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5118236714EC0083BC80 /* Message.swift */; };
+		2EBE511E236721C40083BC80 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EBE511D236721C40083BC80 /* GoogleService-Info.plist */; };
+		2EBE5120236723440083BC80 /* SignInRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE511F236723440083BC80 /* SignInRepositoryImpl.swift */; };
+		2EBE5122236734240083BC80 /* AuraModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5121236734240083BC80 /* AuraModule.swift */; };
+		2EBE5126236734F50083BC80 /* AuthenticationProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5125236734F50083BC80 /* AuthenticationProviders.swift */; };
+		2EBE5128236735CA0083BC80 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5127236735CA0083BC80 /* AppRouter.swift */; };
 		2F819A81216B83CF00E8628F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F819A80216B83CF00E8628F /* AppDelegate.swift */; };
 		2F819A86216B83CF00E8628F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F819A84216B83CF00E8628F /* Main.storyboard */; };
 		2F819A88216B83D000E8628F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F819A87216B83D000E8628F /* Assets.xcassets */; };
@@ -19,10 +24,9 @@
 		2F819AA1216B857200E8628F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F819AA0216B857200E8628F /* SignInViewController.swift */; };
 		2F819AA4216BA2F200E8628F /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F819AA3216BA2F200E8628F /* SignInPresenter.swift */; };
 		2F987635216E067400CCA527 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987634216E067400CCA527 /* BaseViewController.swift */; };
-		2F98763A216E466700CCA527 /* Providers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987639216E466700CCA527 /* Providers.swift */; };
+		2F98763A216E466700CCA527 /* RepositoryProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987639216E466700CCA527 /* RepositoryProviders.swift */; };
 		2F98763C216E46D600CCA527 /* MockSignInRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98763B216E46D600CCA527 /* MockSignInRepositoryImpl.swift */; };
 		2F98763F216E4A7000CCA527 /* ConnectDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98763E216E4A7000CCA527 /* ConnectDeviceViewController.swift */; };
-		2F987641216E4A9E00CCA527 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987640216E4A9E00CCA527 /* Router.swift */; };
 		2F987643216F34EE00CCA527 /* MockSignInRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987642216F34EE00CCA527 /* MockSignInRepository.swift */; };
 		2F987645216F35F100CCA527 /* MockSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987644216F35F100CCA527 /* MockSignInView.swift */; };
 		2F987647216F3F7400CCA527 /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987646216F3F7400CCA527 /* DeviceTableViewCell.swift */; };
@@ -55,6 +59,11 @@
 		2EBE51132366F2CA0083BC80 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2EBE5116236714AC0083BC80 /* UtilExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilExtension.swift; sourceTree = "<group>"; };
 		2EBE5118236714EC0083BC80 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		2EBE511D236721C40083BC80 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2EBE511F236723440083BC80 /* SignInRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepositoryImpl.swift; sourceTree = "<group>"; };
+		2EBE5121236734240083BC80 /* AuraModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuraModule.swift; sourceTree = "<group>"; };
+		2EBE5125236734F50083BC80 /* AuthenticationProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationProviders.swift; sourceTree = "<group>"; };
+		2EBE5127236735CA0083BC80 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		2F819A7D216B83CF00E8628F /* Aura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F819A80216B83CF00E8628F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F819A85216B83CF00E8628F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,10 +76,9 @@
 		2F819AA0216B857200E8628F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		2F819AA3216BA2F200E8628F /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		2F987634216E067400CCA527 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		2F987639216E466700CCA527 /* Providers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Providers.swift; sourceTree = "<group>"; };
+		2F987639216E466700CCA527 /* RepositoryProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProviders.swift; sourceTree = "<group>"; };
 		2F98763B216E46D600CCA527 /* MockSignInRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignInRepositoryImpl.swift; sourceTree = "<group>"; };
 		2F98763E216E4A7000CCA527 /* ConnectDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectDeviceViewController.swift; sourceTree = "<group>"; };
-		2F987640216E4A9E00CCA527 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2F987642216F34EE00CCA527 /* MockSignInRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignInRepository.swift; sourceTree = "<group>"; };
 		2F987644216F35F100CCA527 /* MockSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignInView.swift; sourceTree = "<group>"; };
 		2F987646216F3F7400CCA527 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
@@ -120,7 +128,7 @@
 				2EBE51132366F2CA0083BC80 /* Colors.swift */,
 				2EBE5118236714EC0083BC80 /* Message.swift */,
 				2F98764E216F4D7D00CCA527 /* Error.swift */,
-				2F987640216E4A9E00CCA527 /* Router.swift */,
+				2EBE5127236735CA0083BC80 /* AppRouter.swift */,
 				2EBE5116236714AC0083BC80 /* UtilExtension.swift */,
 			);
 			path = "Supporting Files";
@@ -151,6 +159,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2EBE5123236734950083BC80 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				2EBE5124236734E00083BC80 /* Authentication */,
+				2F987639216E466700CCA527 /* RepositoryProviders.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		2EBE5124236734E00083BC80 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				2EBE5125236734F50083BC80 /* AuthenticationProviders.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		2F819A74216B83CF00E8628F = {
 			isa = PBXGroup;
 			children = (
@@ -174,18 +199,20 @@
 		2F819A7F216B83CF00E8628F /* Aura */ = {
 			isa = PBXGroup;
 			children = (
+				2EBE5123236734950083BC80 /* Providers */,
 				2F819A80216B83CF00E8628F /* AppDelegate.swift */,
+				2EBE5121236734240083BC80 /* AuraModule.swift */,
 				2F98765D216F774100CCA527 /* Report */,
 				2F987658216F763500CCA527 /* Tracking */,
 				2F98763D216E4A5C00CCA527 /* Connection */,
 				2F819AA2216BA2E500E8628F /* Authentication */,
 				2EBE51122366F2B60083BC80 /* Supporting Files */,
 				2F987634216E067400CCA527 /* BaseViewController.swift */,
-				2F987639216E466700CCA527 /* Providers.swift */,
 				2F819A84216B83CF00E8628F /* Main.storyboard */,
 				2F819A89216B83D000E8628F /* LaunchScreen.storyboard */,
 				2F819A87216B83D000E8628F /* Assets.xcassets */,
 				2F819A8C216B83D000E8628F /* Info.plist */,
+				2EBE511D236721C40083BC80 /* GoogleService-Info.plist */,
 			);
 			path = Aura;
 			sourceTree = "<group>";
@@ -206,6 +233,7 @@
 				2EBE511C23671A120083BC80 /* View */,
 				2F819AA3216BA2F200E8628F /* SignInPresenter.swift */,
 				2F98763B216E46D600CCA527 /* MockSignInRepositoryImpl.swift */,
+				2EBE511F236723440083BC80 /* SignInRepositoryImpl.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -375,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F819A8B216B83D000E8628F /* LaunchScreen.storyboard in Resources */,
+				2EBE511E236721C40083BC80 /* GoogleService-Info.plist in Resources */,
 				2F819A88216B83D000E8628F /* Assets.xcassets in Resources */,
 				2F819A86216B83CF00E8628F /* Main.storyboard in Resources */,
 			);
@@ -450,13 +479,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F987641216E4A9E00CCA527 /* Router.swift in Sources */,
 				2EBE5117236714AC0083BC80 /* UtilExtension.swift in Sources */,
 				2F987661216F7EA300CCA527 /* ReportCollectionCell.swift in Sources */,
 				2F819AA4216BA2F200E8628F /* SignInPresenter.swift in Sources */,
 				2F98763F216E4A7000CCA527 /* ConnectDeviceViewController.swift in Sources */,
+				2EBE5128236735CA0083BC80 /* AppRouter.swift in Sources */,
 				2F98764F216F4D7D00CCA527 /* Error.swift in Sources */,
 				2F98764D216F4B1A00CCA527 /* Device.swift in Sources */,
+				2EBE5122236734240083BC80 /* AuraModule.swift in Sources */,
+				2EBE5126236734F50083BC80 /* AuthenticationProviders.swift in Sources */,
+				2EBE5120236723440083BC80 /* SignInRepositoryImpl.swift in Sources */,
 				2F987664216F8EDD00CCA527 /* ReportAdvancedViewController.swift in Sources */,
 				2F987635216E067400CCA527 /* BaseViewController.swift in Sources */,
 				2F987647216F3F7400CCA527 /* DeviceTableViewCell.swift in Sources */,
@@ -470,7 +502,7 @@
 				2F819AA1216B857200E8628F /* SignInViewController.swift in Sources */,
 				2F98765F216F775700CCA527 /* ReportViewController.swift in Sources */,
 				2F987649216F40BD00CCA527 /* DeviceViewModel.swift in Sources */,
-				2F98763A216E466700CCA527 /* Providers.swift in Sources */,
+				2F98763A216E466700CCA527 /* RepositoryProviders.swift in Sources */,
 				2F98764B216F423600CCA527 /* ConnectionDevicePresenter.swift in Sources */,
 				2EBE5119236714EC0083BC80 /* Message.swift in Sources */,
 			);

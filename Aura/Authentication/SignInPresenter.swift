@@ -7,18 +7,18 @@ protocol SignInPresenter {
     func signInFails(iFailExtraMessage : String)
 }
 
-protocol SignInView {
+protocol SignInView : class {
     func signInSucceed()
     func signInFails(_ iFailExtraMessage: String)
 }
 
 protocol SignInRepository {
-    func trySignIn(_ iUsername: String,_ iPassword: String, callback : (_ error: String?) -> ())
+    func trySignIn(_ iUsername: String,_ iPassword: String, callback : @escaping (_ error: String?) -> ())
 }
 
 // Implementation
 class SignInPresenterImpl : SignInPresenter {
-    private let iView : SignInView
+    private weak var iView : SignInView?
     private let iRepository: SignInRepository
     
     init(
@@ -40,10 +40,10 @@ class SignInPresenterImpl : SignInPresenter {
     }
     
     func signInSucceed() {
-        iView.signInSucceed()
+        iView?.signInSucceed()
     }
     
     func signInFails(iFailExtraMessage: String) {
-        iView.signInFails(iFailExtraMessage)
+        iView?.signInFails(iFailExtraMessage)
     }
 }

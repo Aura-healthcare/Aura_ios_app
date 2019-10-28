@@ -5,20 +5,15 @@ import Toast_Swift
 class SignInViewController : BaseViewController, SignInView {
     @IBOutlet weak var pseudoTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    private var presenter : SignInPresenter!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        presenter = SignInPresenterImpl(iView: self, iRepository: Providers.provideSignInRepository())
-    }
+    var presenter : SignInPresenter!
+    var router : Router!
     
     func signInSucceed() {
-        present(Router.ConnectDeviceViewController(), animated: true, completion: nil)
+        router.go(from: self, to: .connection)
     }
     
     func signInFails(_ iFailExtraMessage: String) {
-        self.view.makeToast(iFailExtraMessage, duration: 3.0, position: .top)
-        print(iFailExtraMessage)
+        view.makeToast(iFailExtraMessage, duration: 3.0, position: .top)
     }
     
     @IBAction func signInAction(_ sender: Any) {
