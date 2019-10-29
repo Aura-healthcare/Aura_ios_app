@@ -1,4 +1,5 @@
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -6,6 +7,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if NSClassFromString("XCTestCase") != nil {
+            return true
+        }
+        
+        let router = AppRouter()
+        AuraModule.router = router
+        window = UIWindow()
+        window?.rootViewController = router.rootViewController()
+        window?.makeKeyAndVisible()
+        
+        FirebaseApp.configure()
+        
         return true
     }
 

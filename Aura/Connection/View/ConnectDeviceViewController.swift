@@ -7,16 +7,12 @@ class ConnectDeviceViewController : BaseViewController, ConnectionDeviceView {
     @IBOutlet weak var startTrackingButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     private var devices = [DeviceViewModel]()
-    private var presenter : ConnectionDevicePresenter!
+    var presenter : ConnectionDevicePresenter!
+    var router : Router!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        presenter = ConnectionDevicePresenterDecorator(
-            ConnectionDevicePresenterImpl(
-            iView: ConnectionDeviceViewDecorator(self),
-            iRepository: Providers.provideConnectionDeviceRepository())
-        )
     }
     
     @IBAction func scanAction(_ sender: Any) {
@@ -24,7 +20,7 @@ class ConnectDeviceViewController : BaseViewController, ConnectionDeviceView {
     }
     
     @IBAction func startTrackingAction(_ sender: Any) {
-        present(Router.TrackingViewController(), animated: true, completion: nil)
+        router.go(from: self, to: .tracking)
     }
     
     func scanHasBeenLaunched(){
