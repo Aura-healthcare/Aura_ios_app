@@ -7,6 +7,7 @@ final class Message {
     static let TREATMENT_CHANGED =  "Avez vous changer de traitement récemment ?"
     static let PARTY_LAST_NIGHT = "Êtes vous sorti tard la nuit dernière ?"
     static let COMMENT = "Commentaires"
+    static let TRACK = "Suivi"
     
     static let THANKS = "Merci d'avoir reporté cette crise avec soin. Vos réponses seront très utiles pour mieux comprendre les évenements favorisant le déclenchement d'une crise."
     

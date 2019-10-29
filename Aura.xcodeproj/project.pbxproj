@@ -244,9 +244,9 @@
 			children = (
 				2EBE516B236856BD0083BC80 /* ConnectionDeviceRepositoryImpl.swift */,
 				2F987650216F4E5100CCA527 /* MockConnectionDeviceRepositoryImpl.swift */,
+				2F98764C216F4B1A00CCA527 /* Device.swift */,
 				2F987652216F4F6600CCA527 /* ConnectionDeviceDecorator.swift */,
 				2F98764A216F423600CCA527 /* ConnectionDevicePresenter.swift */,
-				2F98764C216F4B1A00CCA527 /* Device.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -254,9 +254,9 @@
 		2EBE512E236749A10083BC80 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2F819AA3216BA2F200E8628F /* SignInPresenter.swift */,
 				2F98763B216E46D600CCA527 /* MockSignInRepositoryImpl.swift */,
 				2EBE511F236723440083BC80 /* SignInRepositoryImpl.swift */,
+				2F819AA3216BA2F200E8628F /* SignInPresenter.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -753,7 +753,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F5ADB33B854DD786D423805E /* Pods-Aura.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_debug;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7MA98J2NRQ;
@@ -782,7 +782,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 84FCAD2A29A674A11A391102 /* Pods-Aura.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_release;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7MA98J2NRQ;

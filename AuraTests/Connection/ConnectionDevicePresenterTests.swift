@@ -8,7 +8,7 @@ class ConnectionDevicePresenterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        presenter = ConnectionDevicePresenterImpl(iView: view, iRepository: repository)
+        presenter = ConnectionDevicePresenterImpl(view: view, repository: repository)
     }
     
     func testViewDidLoad(){

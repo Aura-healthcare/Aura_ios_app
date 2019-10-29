@@ -2,37 +2,37 @@ import Foundation
 
 // Protocol
 protocol SignInPresenter {
-    func signIn(iUsername : String, iPassword: String)
+    func signIn(email : String, password: String)
     func signInSucceed()
-    func signInFails(iFailExtraMessage : String)
+    func signInFail(with message: String)
 }
 
 protocol SignInView : class {
     func signInSucceed()
-    func signInFails(_ iFailExtraMessage: String)
+    func signInFail(with message: String)
 }
 
 protocol SignInRepository {
-    func trySignIn(_ iUsername: String,_ iPassword: String, callback : @escaping (_ error: String?) -> ())
+    func trySignIn(_ email: String,_ password: String, callback : @escaping (_ error: String?) -> ())
 }
 
 // Implementation
 class SignInPresenterImpl : SignInPresenter {
-    private weak var iView : SignInView?
-    private let iRepository: SignInRepository
+    private weak var view : SignInView?
+    private let repository: SignInRepository
     
     init(
-        iView : SignInView,
-        iRepository: SignInRepository
-        ) {
-        self.iView = iView
-        self.iRepository = iRepository
+        view : SignInView,
+        repository: SignInRepository
+    ) {
+        self.view = view
+        self.repository = repository
     }
     
-    func signIn(iUsername: String, iPassword: String) {
-        iRepository.trySignIn(iUsername, iPassword) { error in
+    func signIn(email: String, password: String) {
+        repository.trySignIn(email, password) { error in
             if let error = error {
-                self.signInFails(iFailExtraMessage: error)
+                self.signInFail(with: error)
             } else {
                 self.signInSucceed()
             }
@@ -40,10 +40,10 @@ class SignInPresenterImpl : SignInPresenter {
     }
     
     func signInSucceed() {
-        iView?.signInSucceed()
+        view?.signInSucceed()
     }
     
-    func signInFails(iFailExtraMessage: String) {
-        iView?.signInFails(iFailExtraMessage)
+    func signInFail(with message: String) {
+        view?.signInFail(with: message)
     }
 }

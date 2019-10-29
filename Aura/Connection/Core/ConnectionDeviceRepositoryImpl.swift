@@ -22,7 +22,7 @@ class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, vlB
          4 | PoweredOff
          5 | PoweredOn
          */
-        print ("\(statusCode)")
+        print (String(describing: statusCode))
     }
     
     func getDevices(deviceFoundCallback: @escaping (Device) -> Void) {
@@ -69,7 +69,7 @@ extension ConnectionDeviceRepositoryImpl : BluetoothScanListenerDelegate {
     }
     
     func onScanError(_ code: Int32, _ msg: String!) {
-        print("Bluetooth scan error \(code) \(msg)")
+        print("Bluetooth scan error \(code) \(String(describing: msg))")
     }
     
     func onScanStop() {
@@ -77,7 +77,7 @@ extension ConnectionDeviceRepositoryImpl : BluetoothScanListenerDelegate {
     }
     
     func onDeviceFound(_ device: VVToolUseClass!) {
-        print("Bluetooth device found: \(device.name)")
+        print("Bluetooth device found: \(String(describing: device.name))")
         deviceFoundCallback?(
             Device(
                 name: device.name,
@@ -89,6 +89,6 @@ extension ConnectionDeviceRepositoryImpl : BluetoothScanListenerDelegate {
 
 extension ConnectionDeviceRepositoryImpl : BluetoothConnectListenerDelegate {
     func onConnected(_ device: VVToolUseClass!) {
-        print("Connected to device: \(device.name)")
+        print("Connected to device: \(String(describing: device.name))")
     }
 }

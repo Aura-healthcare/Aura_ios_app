@@ -9,7 +9,7 @@ class MockSignInView : SignInView {
         invokedSignInSucceedCount += 1
     }
     
-    func signInFails(_ iFailExtraMessage: String) {
+    func signInFail(with message: String) {
         invokedSignInFailsCount += 1
     }
 }

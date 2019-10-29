@@ -21,22 +21,22 @@ protocol ConnectionDeviceRepository {
 
 // Implementation
 class ConnectionDevicePresenterImpl : ConnectionDevicePresenter {
-    internal var iView: ConnectionDeviceView
-    internal var iRepository: ConnectionDeviceRepository
+    internal var view: ConnectionDeviceView
+    internal var repository: ConnectionDeviceRepository
     
-    init(iView: ConnectionDeviceView, iRepository: ConnectionDeviceRepository) {
-        self.iView = iView
-        self.iRepository = iRepository
+    init(view: ConnectionDeviceView, repository: ConnectionDeviceRepository) {
+        self.view = view
+        self.repository = repository
     }
     
     func viewDidLoad() {
-        iRepository.initialize()
+        repository.initialize()
     }
     
     func scan() {
-        iView.scanHasBeenLaunched()
-        iRepository.getDevices { (newDevice) in
-            self.iView.devicesFounded(with:
+        view.scanHasBeenLaunched()
+        repository.getDevices { (newDevice) in
+            self.view.devicesFounded(with:
                 DeviceViewModel(
                     name: newDevice.name,
                     address: "XX:XX:XX:XX:XX",
@@ -44,11 +44,11 @@ class ConnectionDevicePresenterImpl : ConnectionDevicePresenter {
                     deviceTypeLogo: newDevice.typeToDeviceTypeLogo()
                 )
             )
-            self.iView.scanHasBeenStopped()
+            self.view.scanHasBeenStopped()
         }
     }
     
     func didSelect(device: DeviceViewModel) {
-        iRepository.connect(deviceId: device.name) // TODO PBA
+        repository.connect(deviceId: device.name) // TODO PBA
     }
 }

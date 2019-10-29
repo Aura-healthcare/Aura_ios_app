@@ -9,21 +9,21 @@ class SignInPresenterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        presenter = SignInPresenterImpl(iView: view, iRepository: repository)
+        presenter = SignInPresenterImpl(view: view, repository: repository)
     }
     
     func testSignIn_Succeed() {
         // GIVEN
         let view = MockSignInView()
         let repository = MockSignInSucceedRepository()
-        presenter = SignInPresenterImpl(iView: view, iRepository: repository)
+        presenter = SignInPresenterImpl(view: view, repository: repository)
         
         // WHEN
-        presenter.signIn(iUsername: "username", iPassword: "password")
+        presenter.signIn(email: "email", password: "password")
         
         // THEN
         XCTAssertTrue(repository.invokedTrySignIn)
-        XCTAssert(repository.invokedTrySignInParams1 == "username")
+        XCTAssert(repository.invokedTrySignInParams1 == "email")
         XCTAssert(repository.invokedTrySignInParams2 == "password")
         XCTAssert(repository.invokedTrySignInError == nil)
     }
@@ -32,14 +32,14 @@ class SignInPresenterTests: XCTestCase {
         // GIVEN
         let view = MockSignInView()
         let repository = MockSignInErrorRepository()
-        presenter = SignInPresenterImpl(iView: view, iRepository: repository)
+        presenter = SignInPresenterImpl(view: view, repository: repository)
         
         // WHEN
-        presenter.signIn(iUsername: "username", iPassword: "password")
+        presenter.signIn(email: "email", password : "password")
         
         // THEN
         XCTAssertTrue(repository.invokedTrySignIn)
-        XCTAssert(repository.invokedTrySignInParams1 == "username")
+        XCTAssert(repository.invokedTrySignInParams1 == "email")
         XCTAssert(repository.invokedTrySignInParams2 == "password")
         XCTAssert(repository.invokedTrySignInError == "error")
     }
@@ -53,7 +53,7 @@ class SignInPresenterTests: XCTestCase {
     
     func testSignInFails() {
         // WHEN
-        presenter.signInFails(iFailExtraMessage: "error")
+        presenter.signInFail(with: "error")
         // THEN
         XCTAssert(view.invokedSignInFailsCount == 1)
     }
