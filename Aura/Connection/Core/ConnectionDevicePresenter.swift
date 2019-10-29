@@ -4,6 +4,7 @@ import Foundation
 protocol ConnectionDevicePresenter {
     func viewDidLoad()
     func scan()
+    func didSelect(device: DeviceViewModel)
 }
 
 protocol ConnectionDeviceView {
@@ -15,6 +16,7 @@ protocol ConnectionDeviceView {
 protocol ConnectionDeviceRepository {
     func initialize()
     func getDevices(deviceFoundCallback: @escaping (Device) -> Void)
+    func connect(deviceId: String)
 }
 
 // Implementation
@@ -35,12 +37,18 @@ class ConnectionDevicePresenterImpl : ConnectionDevicePresenter {
         iView.scanHasBeenLaunched()
         iRepository.getDevices { (newDevice) in
             self.iView.devicesFounded(with:
-                DeviceViewModel(name: newDevice.name,
-                                address: "XX:XX:XX:XX:XX",
-                                deviceLogo: "icon_pairing_symbol_neutral",
-                                deviceTypeLogo: newDevice.typeToDeviceTypeLogo())
+                DeviceViewModel(
+                    name: newDevice.name,
+                    address: "XX:XX:XX:XX:XX",
+                    deviceLogo: "icon_pairing_symbol_neutral",
+                    deviceTypeLogo: newDevice.typeToDeviceTypeLogo()
+                )
             )
             self.iView.scanHasBeenStopped()
         }
+    }
+    
+    func didSelect(device: DeviceViewModel) {
+        iRepository.connect(deviceId: device.name) // TODO PBA
     }
 }

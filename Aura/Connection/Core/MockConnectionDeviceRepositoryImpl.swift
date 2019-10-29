@@ -14,4 +14,8 @@ class MockConnectionDeviceRepositoryImpl : ConnectionDeviceRepository {
         sleep(1)
         deviceFoundCallback(Device(name: "MAXREFDES73#", type: .SKIN))
     }
+    
+    func connect(deviceId: String) {
+        /* do nothing */
+    }
 }

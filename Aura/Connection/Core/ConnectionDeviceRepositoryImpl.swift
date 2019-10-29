@@ -42,7 +42,7 @@ class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, vlB
     
     func connect(deviceId: String) {
         let device = VVToolUseClass()
-        device.deviceId = deviceId
+        device.name = deviceId
         device.connectTimeout = 1000*30
         device.connectRetry = 1000
         manager?.connect(device)

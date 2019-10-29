@@ -11,7 +11,7 @@ class ConnectionDevicePresenterTests: XCTestCase {
         presenter = ConnectionDevicePresenterImpl(iView: view, iRepository: repository)
     }
     
-    func viewDidLoad(){
+    func testViewDidLoad(){
         // WHEN
         presenter.viewDidLoad()
         
@@ -27,11 +27,28 @@ class ConnectionDevicePresenterTests: XCTestCase {
         XCTAssert(view.invokedScanHasBeenLaunchedCount == 1)
         XCTAssertTrue(view.invokedDeviceFounded)
         XCTAssertEqual(view.invokedDeviceFoundedData,
-            DeviceViewModel(name: "FakeDevice",
-                            address: "XX:XX:XX:XX:XX",
-                            deviceLogo: "icon_pairing_symbol_neutral",
-                            deviceTypeLogo: "hrv_connected"))
+                       DeviceViewModel(
+                        name: "FakeDevice",
+                        address: "XX:XX:XX:XX:XX",
+                        deviceLogo: "icon_pairing_symbol_neutral",
+                        deviceTypeLogo: "hrv_connected")
+        )
         XCTAssert(view.invokedScanHasBeenStoppedCount == 1)
+    }
+    
+    func testDidSelect() {
+        // WHEN
+        presenter.didSelect(device:
+            DeviceViewModel(
+                name: "FakeDevice",
+                address: "XXXX:XXXX:XXXX",
+                deviceLogo: "logo",
+                deviceTypeLogo: "typeLogo"
+            )
+        )
+        
+        // THEN
+        XCTAssertTrue(repository.invokedConnect)
     }
 }
 
@@ -57,6 +74,7 @@ class MockConnectionDeviceView: ConnectionDeviceView {
 
 class MockConnectionDeviceTestRepository : ConnectionDeviceRepository {
     var invokedInitialize = false
+    var invokedConnect = false
     
     func initialize() {
         invokedInitialize = true
@@ -66,5 +84,9 @@ class MockConnectionDeviceTestRepository : ConnectionDeviceRepository {
         deviceFoundCallback(
             Device(name: "FakeDevice", type: .HEART)
         )
+    }
+    
+    func connect(deviceId: String) {
+        invokedConnect = true
     }
 }

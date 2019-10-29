@@ -36,5 +36,11 @@ final class ConnectionDevicePresenterDecorator : ConnectionDevicePresenter {
             self?.iPresenter.scan()
         }
     }
+    
+    func didSelect(device: DeviceViewModel) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.iPresenter.didSelect(device: device)
+        }
+    }
 }
 

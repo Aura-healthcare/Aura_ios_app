@@ -13,6 +13,7 @@ class ConnectDeviceViewController : BaseViewController, ConnectionDeviceView {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         presenter.viewDidLoad()
     }
     
@@ -69,4 +70,11 @@ extension ConnectDeviceViewController : UITableViewDataSource {
         return cell
     }
     
+}
+
+extension ConnectDeviceViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let device = devices[indexPath.row]
+        presenter.didSelect(device: device)
+    }
 }
