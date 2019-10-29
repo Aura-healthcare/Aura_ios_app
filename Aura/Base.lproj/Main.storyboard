@@ -58,12 +58,10 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="ofc-Aw-vjw" firstAttribute="top" secondItem="UlM-5B-243" secondAttribute="top" constant="32" id="5b4-Sw-c5f"/>
-                                                    <constraint firstItem="y0q-8I-Ryl" firstAttribute="top" secondItem="ofc-Aw-vjw" secondAttribute="bottom" constant="32" id="7hL-nc-jTp"/>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="y0q-8I-Ryl" secondAttribute="trailing" constant="83.5" id="Moo-qL-FMt"/>
                                                     <constraint firstItem="ofc-Aw-vjw" firstAttribute="centerX" secondItem="UlM-5B-243" secondAttribute="centerX" id="VMg-fY-58n"/>
                                                     <constraint firstItem="YGI-OV-IHH" firstAttribute="centerX" secondItem="UlM-5B-243" secondAttribute="centerX" id="dTy-qI-sEk"/>
-                                                    <constraint firstItem="y0q-8I-Ryl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UlM-5B-243" secondAttribute="leading" constant="83.5" id="ddd-Qr-MmO"/>
-                                                    <constraint firstItem="YGI-OV-IHH" firstAttribute="top" secondItem="y0q-8I-Ryl" secondAttribute="bottom" constant="32" id="x3m-1c-F1p"/>
+                                                    <constraint firstItem="y0q-8I-Ryl" firstAttribute="top" secondItem="ofc-Aw-vjw" secondAttribute="bottom" constant="32" id="gT6-oA-Sy5"/>
+                                                    <constraint firstItem="YGI-OV-IHH" firstAttribute="top" secondItem="y0q-8I-Ryl" secondAttribute="bottom" constant="32" id="hAC-n0-doH"/>
                                                     <constraint firstItem="y0q-8I-Ryl" firstAttribute="centerX" secondItem="UlM-5B-243" secondAttribute="centerX" id="xsE-jH-2qR"/>
                                                 </constraints>
                                             </view>
@@ -588,7 +586,6 @@
         <!--Navigation Controller-->
         <scene sceneID="SqB-5E-QD9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4cn-gd-KsE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z3c-q9-seM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4bi-yr-Xvh">
@@ -600,6 +597,7 @@
                         <segue destination="8zi-sm-vCS" kind="relationship" relationship="rootViewController" id="hot-N0-BlK"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4cn-gd-KsE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1800.8" y="-269.41529235382313"/>
         </scene>

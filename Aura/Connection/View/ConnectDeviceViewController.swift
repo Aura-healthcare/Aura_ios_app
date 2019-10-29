@@ -13,6 +13,7 @@ class ConnectDeviceViewController : BaseViewController, ConnectionDeviceView {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        presenter.viewDidLoad()
     }
     
     @IBAction func scanAction(_ sender: Any) {
@@ -35,8 +36,8 @@ class ConnectDeviceViewController : BaseViewController, ConnectionDeviceView {
         progressIndicatorView.stopAnimating()
     }
     
-    func devicesFounded(devices : [DeviceViewModel]) {
-        self.devices = devices
+    func devicesFounded(with device : DeviceViewModel) {
+        self.devices.append(device)
         self.tableView.reloadData()
         self.scanButton.isHidden = true
         self.startTrackingButton.isHidden = false

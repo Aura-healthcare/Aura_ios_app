@@ -16,6 +16,12 @@
 		2EBE5122236734240083BC80 /* AuraModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5121236734240083BC80 /* AuraModule.swift */; };
 		2EBE5126236734F50083BC80 /* AuthenticationProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5125236734F50083BC80 /* AuthenticationProviders.swift */; };
 		2EBE5128236735CA0083BC80 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5127236735CA0083BC80 /* AppRouter.swift */; };
+		2EBE516C236856BE0083BC80 /* ConnectionDeviceRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE516B236856BD0083BC80 /* ConnectionDeviceRepositoryImpl.swift */; };
+		2EBE516E236856EE0083BC80 /* VivalnkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBE516D236856EE0083BC80 /* VivalnkSDK.framework */; };
+		2EBE516F236856EE0083BC80 /* VivalnkSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBE516D236856EE0083BC80 /* VivalnkSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EBE519D236863CF0083BC80 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE519C236863CF0083BC80 /* main.mm */; };
+		2EBE519F236864900083BC80 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBE519E236864900083BC80 /* CoreBluetooth.framework */; };
+		2EBE51A1236865FC0083BC80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBE51A0236865FC0083BC80 /* CoreLocation.framework */; };
 		2F819A81216B83CF00E8628F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F819A80216B83CF00E8628F /* AppDelegate.swift */; };
 		2F819A86216B83CF00E8628F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F819A84216B83CF00E8628F /* Main.storyboard */; };
 		2F819A88216B83D000E8628F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F819A87216B83D000E8628F /* Assets.xcassets */; };
@@ -34,7 +40,7 @@
 		2F98764B216F423600CCA527 /* ConnectionDevicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98764A216F423600CCA527 /* ConnectionDevicePresenter.swift */; };
 		2F98764D216F4B1A00CCA527 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98764C216F4B1A00CCA527 /* Device.swift */; };
 		2F98764F216F4D7D00CCA527 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F98764E216F4D7D00CCA527 /* Error.swift */; };
-		2F987651216F4E5100CCA527 /* MockConnectionDeviceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987650216F4E5100CCA527 /* MockConnectionDeviceRepository.swift */; };
+		2F987651216F4E5100CCA527 /* MockConnectionDeviceRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987650216F4E5100CCA527 /* MockConnectionDeviceRepositoryImpl.swift */; };
 		2F987653216F4F6600CCA527 /* ConnectionDeviceDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987652216F4F6600CCA527 /* ConnectionDeviceDecorator.swift */; };
 		2F987657216F6A8C00CCA527 /* ConnectionDevicePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987656216F6A8C00CCA527 /* ConnectionDevicePresenterTests.swift */; };
 		2F98765A216F765B00CCA527 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F987659216F765B00CCA527 /* TrackingViewController.swift */; };
@@ -55,6 +61,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2EBE5170236856EE0083BC80 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2EBE516F236856EE0083BC80 /* VivalnkSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2EBE51132366F2CA0083BC80 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2EBE5116236714AC0083BC80 /* UtilExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilExtension.swift; sourceTree = "<group>"; };
@@ -64,6 +84,12 @@
 		2EBE5121236734240083BC80 /* AuraModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuraModule.swift; sourceTree = "<group>"; };
 		2EBE5125236734F50083BC80 /* AuthenticationProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationProviders.swift; sourceTree = "<group>"; };
 		2EBE5127236735CA0083BC80 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		2EBE516B236856BD0083BC80 /* ConnectionDeviceRepositoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionDeviceRepositoryImpl.swift; sourceTree = "<group>"; };
+		2EBE516D236856EE0083BC80 /* VivalnkSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VivalnkSDK.framework; sourceTree = "<group>"; };
+		2EBE519B236863CE0083BC80 /* Aura-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Aura-Bridging-Header.h"; sourceTree = "<group>"; };
+		2EBE519C236863CF0083BC80 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		2EBE519E236864900083BC80 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		2EBE51A0236865FC0083BC80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2F819A7D216B83CF00E8628F /* Aura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F819A80216B83CF00E8628F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F819A85216B83CF00E8628F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,7 +112,7 @@
 		2F98764A216F423600CCA527 /* ConnectionDevicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDevicePresenter.swift; sourceTree = "<group>"; };
 		2F98764C216F4B1A00CCA527 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		2F98764E216F4D7D00CCA527 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		2F987650216F4E5100CCA527 /* MockConnectionDeviceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnectionDeviceRepository.swift; sourceTree = "<group>"; };
+		2F987650216F4E5100CCA527 /* MockConnectionDeviceRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConnectionDeviceRepositoryImpl.swift; sourceTree = "<group>"; };
 		2F987652216F4F6600CCA527 /* ConnectionDeviceDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDeviceDecorator.swift; sourceTree = "<group>"; };
 		2F987656216F6A8C00CCA527 /* ConnectionDevicePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionDevicePresenterTests.swift; sourceTree = "<group>"; };
 		2F987659216F765B00CCA527 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +133,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EBE51A1236865FC0083BC80 /* CoreLocation.framework in Frameworks */,
 				163E0882C7FE63CCCC2590D3 /* Pods_Aura.framework in Frameworks */,
+				2EBE519F236864900083BC80 /* CoreBluetooth.framework in Frameworks */,
+				2EBE516E236856EE0083BC80 /* VivalnkSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,8 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				2F987648216F40BD00CCA527 /* DeviceViewModel.swift */,
-				2F98763E216E4A7000CCA527 /* ConnectDeviceViewController.swift */,
 				2F987646216F3F7400CCA527 /* DeviceTableViewCell.swift */,
+				2F98763E216E4A7000CCA527 /* ConnectDeviceViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,7 +242,8 @@
 		2EBE512D236749600083BC80 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2F987650216F4E5100CCA527 /* MockConnectionDeviceRepository.swift */,
+				2EBE516B236856BD0083BC80 /* ConnectionDeviceRepositoryImpl.swift */,
+				2F987650216F4E5100CCA527 /* MockConnectionDeviceRepositoryImpl.swift */,
 				2F987652216F4F6600CCA527 /* ConnectionDeviceDecorator.swift */,
 				2F98764A216F423600CCA527 /* ConnectionDevicePresenter.swift */,
 				2F98764C216F4B1A00CCA527 /* Device.swift */,
@@ -268,6 +298,8 @@
 				2F819A87216B83D000E8628F /* Assets.xcassets */,
 				2F819A8C216B83D000E8628F /* Info.plist */,
 				2EBE511D236721C40083BC80 /* GoogleService-Info.plist */,
+				2EBE519C236863CF0083BC80 /* main.mm */,
+				2EBE519B236863CE0083BC80 /* Aura-Bridging-Header.h */,
 			);
 			path = Aura;
 			sourceTree = "<group>";
@@ -358,6 +390,9 @@
 		B9AA7BE199A8F1489CC7C0A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2EBE51A0236865FC0083BC80 /* CoreLocation.framework */,
+				2EBE519E236864900083BC80 /* CoreBluetooth.framework */,
+				2EBE516D236856EE0083BC80 /* VivalnkSDK.framework */,
 				FDDE9B85966F25C8A09B91CD /* Pods_Aura.framework */,
 				4345FBFDBE43BBB19FC79296 /* Pods_AuraTests.framework */,
 			);
@@ -376,6 +411,7 @@
 				2F819A7A216B83CF00E8628F /* Frameworks */,
 				2F819A7B216B83CF00E8628F /* Resources */,
 				8F5D8083A1624A522383F889 /* [CP] Embed Pods Frameworks */,
+				2EBE5170236856EE0083BC80 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -528,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EBE5117236714AC0083BC80 /* UtilExtension.swift in Sources */,
+				2EBE516C236856BE0083BC80 /* ConnectionDeviceRepositoryImpl.swift in Sources */,
 				2F987661216F7EA300CCA527 /* ReportCollectionCell.swift in Sources */,
 				2F819AA4216BA2F200E8628F /* SignInPresenter.swift in Sources */,
 				2F98763F216E4A7000CCA527 /* ConnectDeviceViewController.swift in Sources */,
@@ -546,7 +583,8 @@
 				2F987653216F4F6600CCA527 /* ConnectionDeviceDecorator.swift in Sources */,
 				2F98765A216F765B00CCA527 /* TrackingViewController.swift in Sources */,
 				2F98763C216E46D600CCA527 /* MockSignInRepositoryImpl.swift in Sources */,
-				2F987651216F4E5100CCA527 /* MockConnectionDeviceRepository.swift in Sources */,
+				2F987651216F4E5100CCA527 /* MockConnectionDeviceRepositoryImpl.swift in Sources */,
+				2EBE519D236863CF0083BC80 /* main.mm in Sources */,
 				2F819AA1216B857200E8628F /* SignInViewController.swift in Sources */,
 				2F98765F216F775700CCA527 /* ReportViewController.swift in Sources */,
 				2F987649216F40BD00CCA527 /* DeviceViewModel.swift in Sources */,
@@ -719,6 +757,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7MA98J2NRQ;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Aura/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -728,7 +771,7 @@
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wearablesensor.aura.Aura;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Aura/Aura-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -743,6 +786,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7MA98J2NRQ;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Aura/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -752,7 +800,7 @@
 				OTHER_SWIFT_FLAGS = "-DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wearablesensor.aura.Aura;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Aura/Aura-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

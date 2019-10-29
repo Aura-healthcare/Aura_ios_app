@@ -14,8 +14,8 @@ final class ConnectionDeviceViewDecorator : ConnectionDeviceView{
         DispatchQueue.main.async { [weak self] in self?.iView.scanHasBeenLaunched() }
     }
     
-    func devicesFounded(devices: [DeviceViewModel]) {
-        DispatchQueue.main.async { [weak self] in self?.iView.devicesFounded(devices: devices) }
+    func devicesFounded(with device: DeviceViewModel) {
+        DispatchQueue.main.async { [weak self] in self?.iView.devicesFounded(with: device) }
     }
 }
 
@@ -23,6 +23,12 @@ final class ConnectionDevicePresenterDecorator : ConnectionDevicePresenter {
     private var iPresenter: ConnectionDevicePresenterImpl
     init(_ iPresenter: ConnectionDevicePresenterImpl) {
         self.iPresenter = iPresenter
+    }
+    
+    func viewDidLoad() {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.iPresenter.viewDidLoad()
+        }
     }
     
     func scan() {

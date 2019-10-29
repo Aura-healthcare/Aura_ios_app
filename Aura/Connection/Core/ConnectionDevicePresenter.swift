@@ -2,17 +2,19 @@ import Foundation
 
 // Protocol
 protocol ConnectionDevicePresenter {
+    func viewDidLoad()
     func scan()
 }
 
 protocol ConnectionDeviceView {
     func scanHasBeenLaunched()
     func scanHasBeenStopped()
-    func devicesFounded(devices : [DeviceViewModel])
+    func devicesFounded(with device : DeviceViewModel)
 }
 
 protocol ConnectionDeviceRepository {
-    func getDevices() -> [Device]
+    func initialize()
+    func getDevices(deviceFoundCallback: @escaping (Device) -> Void)
 }
 
 // Implementation
@@ -25,18 +27,20 @@ class ConnectionDevicePresenterImpl : ConnectionDevicePresenter {
         self.iRepository = iRepository
     }
     
+    func viewDidLoad() {
+        iRepository.initialize()
+    }
+    
     func scan() {
         iView.scanHasBeenLaunched()
-        let devices = iRepository.getDevices()
-        if (!devices.isEmpty) {
-            iView.devicesFounded(devices: devices.map({ (it) -> DeviceViewModel in
-                DeviceViewModel(name: it.name,
+        iRepository.getDevices { (newDevice) in
+            self.iView.devicesFounded(with:
+                DeviceViewModel(name: newDevice.name,
                                 address: "XX:XX:XX:XX:XX",
                                 deviceLogo: "icon_pairing_symbol_neutral",
-                                deviceTypeLogo: it.typeToDeviceTypeLogo())
-                })
+                                deviceTypeLogo: newDevice.typeToDeviceTypeLogo())
             )
+            self.iView.scanHasBeenStopped()
         }
-        iView.scanHasBeenStopped()
     }
 }

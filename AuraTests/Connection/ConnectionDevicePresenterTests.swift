@@ -4,54 +4,42 @@ import XCTest
 class ConnectionDevicePresenterTests: XCTestCase {
     private var presenter: ConnectionDevicePresenter!
     private var view = MockConnectionDeviceView()
-    private var repository = MockConnectionDeviceRepository()
+    private var repository = MockConnectionDeviceTestRepository()
     
     override func setUp() {
         super.setUp()
         presenter = ConnectionDevicePresenterImpl(iView: view, iRepository: repository)
     }
     
+    func viewDidLoad(){
+        // WHEN
+        presenter.viewDidLoad()
+        
+        // THEN
+        XCTAssertTrue(repository.invokedInitialize)
+    }
+    
     func testScan(){
         // WHEN
         presenter.scan()
+        
         // THEN
         XCTAssert(view.invokedScanHasBeenLaunchedCount == 1)
-        XCTAssertTrue(view.invokedDevicesFounded)
-        XCTAssertEqual(view.invokedDevicesFoundedData, [
-            DeviceViewModel(name: "Polar H10 2E0E2A28",
+        XCTAssertTrue(view.invokedDeviceFounded)
+        XCTAssertEqual(view.invokedDeviceFoundedData,
+            DeviceViewModel(name: "FakeDevice",
                             address: "XX:XX:XX:XX:XX",
                             deviceLogo: "icon_pairing_symbol_neutral",
-                            deviceTypeLogo: "hrv_connected"),
-            DeviceViewModel(name: "MetaWear",
-                            address: "XX:XX:XX:XX:XX",
-                            deviceLogo: "icon_pairing_symbol_neutral",
-                            deviceTypeLogo: "accelerometer_picture_disable"),
-            DeviceViewModel(name: "MAXREFDES73#",
-                            address: "XX:XX:XX:XX:XX",
-                            deviceLogo: "icon_pairing_symbol_neutral",
-                            deviceTypeLogo: "electro_dermal_activity_picture_disable")
-            ])
+                            deviceTypeLogo: "hrv_connected"))
         XCTAssert(view.invokedScanHasBeenStoppedCount == 1)
     }
-    
-    func testScan_whenEmpty(){
-        // GIVEN
-        presenter = ConnectionDevicePresenterImpl(iView: view, iRepository: MockConnectionDeviceEmptyRepository())
-        // WHEN
-        presenter.scan()
-        // THEN
-        XCTAssert(view.invokedScanHasBeenLaunchedCount == 1)
-        XCTAssertFalse(view.invokedDevicesFounded)
-        XCTAssert(view.invokedScanHasBeenStoppedCount == 1)
-    }
-
 }
 
 class MockConnectionDeviceView: ConnectionDeviceView {
     var invokedScanHasBeenLaunchedCount = 0
     var invokedScanHasBeenStoppedCount = 0
-    var invokedDevicesFounded = false
-    var invokedDevicesFoundedData = [DeviceViewModel]()
+    var invokedDeviceFounded = false
+    var invokedDeviceFoundedData : DeviceViewModel? = nil
     
     func scanHasBeenLaunched() {
         self.invokedScanHasBeenLaunchedCount += 1
@@ -61,14 +49,22 @@ class MockConnectionDeviceView: ConnectionDeviceView {
         self.invokedScanHasBeenStoppedCount += 1
     }
     
-    func devicesFounded(devices: [DeviceViewModel]) {
-        self.invokedDevicesFounded = true
-        self.invokedDevicesFoundedData = devices
+    func devicesFounded(with device: DeviceViewModel) {
+        self.invokedDeviceFounded = true
+        self.invokedDeviceFoundedData = device
     }
 }
 
-class MockConnectionDeviceEmptyRepository : ConnectionDeviceRepository {
-    func getDevices() -> [Device] {
-        return [Device]()
+class MockConnectionDeviceTestRepository : ConnectionDeviceRepository {
+    var invokedInitialize = false
+    
+    func initialize() {
+        invokedInitialize = true
+    }
+    
+    func getDevices(deviceFoundCallback: @escaping (Device) -> Void) {
+        deviceFoundCallback(
+            Device(name: "FakeDevice", type: .HEART)
+        )
     }
 }
