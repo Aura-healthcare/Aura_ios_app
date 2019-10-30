@@ -1,45 +1,45 @@
 import Foundation
 
 final class ConnectionDeviceViewDecorator : ConnectionDeviceView{
-    private var iView: ConnectionDeviceView
-    init(_ iView: ConnectionDeviceView) {
-        self.iView = iView
+    private var view: ConnectionDeviceView
+    init(_ view: ConnectionDeviceView) {
+        self.view = view
     }
     
     func scanHasBeenStopped() {
-        DispatchQueue.main.async { [weak self] in self?.iView.scanHasBeenStopped() }
+        DispatchQueue.main.async { [weak self] in self?.view.scanHasBeenStopped() }
     }
     
     func scanHasBeenLaunched() {
-        DispatchQueue.main.async { [weak self] in self?.iView.scanHasBeenLaunched() }
+        DispatchQueue.main.async { [weak self] in self?.view.scanHasBeenLaunched() }
     }
     
     func devicesFounded(with device: DeviceViewModel) {
-        DispatchQueue.main.async { [weak self] in self?.iView.devicesFounded(with: device) }
+        DispatchQueue.main.async { [weak self] in self?.view.devicesFounded(with: device) }
     }
 }
 
 final class ConnectionDevicePresenterDecorator : ConnectionDevicePresenter {
-    private var iPresenter: ConnectionDevicePresenterImpl
-    init(_ iPresenter: ConnectionDevicePresenterImpl) {
-        self.iPresenter = iPresenter
+    private var presenter: ConnectionDevicePresenterImpl
+    init(_ presenter: ConnectionDevicePresenterImpl) {
+        self.presenter = presenter
     }
     
     func viewDidLoad() {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.iPresenter.viewDidLoad()
+            self?.presenter.viewDidLoad()
         }
     }
     
     func scan() {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.iPresenter.scan()
+            self?.presenter.scan()
         }
     }
     
     func didSelect(device: DeviceViewModel) {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.iPresenter.didSelect(device: device)
+            self?.presenter.didSelect(device: device)
         }
     }
 }

@@ -1,21 +1,22 @@
 import Foundation
 
 class MockConnectionDeviceRepositoryImpl : ConnectionDeviceRepository {
+    var deviceFoundCallback: ((Device) -> Void)? = nil
     
     func initialize() {
         /* do nothing */
     }
     
-    func getDevices(deviceFoundCallback: @escaping (Device) -> Void) {
+    func startScan() {
         sleep(1)
-        deviceFoundCallback(Device(name: "Polar H10 2E0E2A28", type: .HEART))
+        deviceFoundCallback?(Device(name: "Polar H10 2E0E2A28", type: .HEART))
         sleep(1)
-        deviceFoundCallback(Device(name: "MetaWear", type: .GYRO))
+        deviceFoundCallback?(Device(name: "MetaWear", type: .GYRO))
         sleep(1)
-        deviceFoundCallback(Device(name: "MAXREFDES73#", type: .SKIN))
+        deviceFoundCallback?(Device(name: "MAXREFDES73#", type: .SKIN))
     }
     
-    func connect(deviceId: String) {
+    func connect(deviceName: String) {
         /* do nothing */
     }
     

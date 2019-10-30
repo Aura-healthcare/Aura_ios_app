@@ -93,7 +93,7 @@ class MockConnectionDeviceTestRepository : ConnectionDeviceRepository {
         )
     }
     
-    func connect(deviceId: String) {
+    func connect(deviceName: String) {
         invokedConnect = true
     }
     

@@ -3,8 +3,8 @@ import VivalnkSDK
 
 class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, vlBLEDelegates {
     
-    private let manager = VVBleManager.shareInstance()
-    private var deviceFoundCallback: ((Device) -> Void)? = nil
+    private weak var manager = VVBleManager.shareInstance()
+    var deviceFoundCallback: ((Device) -> Void)? = nil
     
     func initialize() {
         manager?.bleReconnectEnabled = true
@@ -26,11 +26,6 @@ class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, vlB
         print (String(describing: statusCode))
     }
     
-    func getDevices(deviceFoundCallback: @escaping (Device) -> Void) {
-        self.deviceFoundCallback = deviceFoundCallback
-        startScan()
-    }
-    
     func startScan() {
         let option = VVToolUseClass()
         option.scanTimeout = 1000*60
@@ -41,9 +36,9 @@ class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, vlB
         manager?.stopScan()
     }
     
-    func connect(deviceId: String) {
+    func connect(deviceName: String) {
         let device = VVToolUseClass()
-        device.name = deviceId
+        device.name = deviceName
         device.connectTimeout = 1000*30
         device.connectRetry = 1000
         manager?.connect(device)

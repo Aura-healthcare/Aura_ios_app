@@ -7,28 +7,29 @@ protocol ConnectionDevicePresenter {
     func didSelect(device: DeviceViewModel)
 }
 
-protocol ConnectionDeviceView {
+protocol ConnectionDeviceView : class {
     func scanHasBeenLaunched()
     func scanHasBeenStopped()
     func devicesFounded(with device : DeviceViewModel)
 }
 
 protocol ConnectionDeviceRepository {
+    var deviceFoundCallback: ((Device) -> Void)? { get set }
     func initialize()
-    func getDevices(deviceFoundCallback: @escaping (Device) -> Void)
-    func connect(deviceId: String)
+    func startScan()
+    func connect(deviceName: String)
     func stopScan()
 }
 
 // Implementation
 class ConnectionDevicePresenterImpl : ConnectionDevicePresenter {
-    internal var view: ConnectionDeviceView
-    internal var repository: ConnectionDeviceRepository
-    internal var executor: Executor
+    private var decorator: ConnectionDeviceView
+    private var repository: ConnectionDeviceRepository
+    private var executor: Executor
     private let SCAN_TIMEOUT = 5.0
     
     init(view: ConnectionDeviceView, repository: ConnectionDeviceRepository, executor: Executor) {
-        self.view = view
+        self.decorator = view
         self.repository = repository
         self.executor = executor
     }
@@ -38,26 +39,25 @@ class ConnectionDevicePresenterImpl : ConnectionDevicePresenter {
     }
     
     func scan() {
-        view.scanHasBeenLaunched()
-        repository.getDevices(deviceFoundCallback: onNewDeviceFound)
+        decorator.scanHasBeenLaunched()
+        repository.deviceFoundCallback = { [weak self] newDevice in
+            self?.decorator.devicesFounded(with:
+                DeviceViewModel(
+                    name: newDevice.name,
+                    address: "XX:XX:XX:XX:XX",
+                    deviceLogo: "icon_pairing_symbol_neutral",
+                    deviceTypeLogo: newDevice.typeToDeviceTypeLogo()
+                )
+            )
+        }
+        repository.startScan()
         executor.runMainAfter(seconds: SCAN_TIMEOUT) { [weak self] in
             self?.repository.stopScan()
-            self?.view.scanHasBeenStopped()
+            self?.decorator.scanHasBeenStopped()
         }
     }
     
-    private func onNewDeviceFound(newDevice: Device) {
-        self.view.devicesFounded(with:
-            DeviceViewModel(
-                name: newDevice.name,
-                address: "XX:XX:XX:XX:XX",
-                deviceLogo: "icon_pairing_symbol_neutral",
-                deviceTypeLogo: newDevice.typeToDeviceTypeLogo()
-            )
-        )
-    }
-    
     func didSelect(device: DeviceViewModel) {
-        repository.connect(deviceId: device.name) // TODO PBA
+        repository.connect(deviceName: device.name)
     }
 }
