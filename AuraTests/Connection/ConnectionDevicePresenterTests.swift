@@ -8,7 +8,11 @@ class ConnectionDevicePresenterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        presenter = ConnectionDevicePresenterImpl(view: view, repository: repository)
+        presenter = ConnectionDevicePresenterImpl(
+            view: view,
+            repository: repository,
+            executor: MockExecutor()
+        )
     }
     
     func testViewDidLoad(){
@@ -33,6 +37,7 @@ class ConnectionDevicePresenterTests: XCTestCase {
                         deviceLogo: "icon_pairing_symbol_neutral",
                         deviceTypeLogo: "hrv_connected")
         )
+        XCTAssertTrue(repository.invokedStopScan)
         XCTAssert(view.invokedScanHasBeenStoppedCount == 1)
     }
     
@@ -73,8 +78,10 @@ class MockConnectionDeviceView: ConnectionDeviceView {
 }
 
 class MockConnectionDeviceTestRepository : ConnectionDeviceRepository {
+    
     var invokedInitialize = false
     var invokedConnect = false
+    var invokedStopScan = false
     
     func initialize() {
         invokedInitialize = true
@@ -88,5 +95,15 @@ class MockConnectionDeviceTestRepository : ConnectionDeviceRepository {
     
     func connect(deviceId: String) {
         invokedConnect = true
+    }
+    
+    func stopScan() {
+        invokedStopScan = true
+    }
+}
+
+class MockExecutor : Executor {
+    override func runMainAfter(seconds: Double, callback: @escaping () -> ()) {
+        callback()
     }
 }

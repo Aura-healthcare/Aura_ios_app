@@ -22,6 +22,7 @@
 		2EBE519D236863CF0083BC80 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE519C236863CF0083BC80 /* main.mm */; };
 		2EBE519F236864900083BC80 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBE519E236864900083BC80 /* CoreBluetooth.framework */; };
 		2EBE51A1236865FC0083BC80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBE51A0236865FC0083BC80 /* CoreLocation.framework */; };
+		2EBE51A32368A6E90083BC80 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE51A22368A6E90083BC80 /* Executor.swift */; };
 		2F819A81216B83CF00E8628F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F819A80216B83CF00E8628F /* AppDelegate.swift */; };
 		2F819A86216B83CF00E8628F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F819A84216B83CF00E8628F /* Main.storyboard */; };
 		2F819A88216B83D000E8628F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F819A87216B83D000E8628F /* Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		2EBE519C236863CF0083BC80 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		2EBE519E236864900083BC80 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		2EBE51A0236865FC0083BC80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2EBE51A22368A6E90083BC80 /* Executor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
 		2F819A7D216B83CF00E8628F /* Aura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F819A80216B83CF00E8628F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F819A85216B83CF00E8628F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				2F98764E216F4D7D00CCA527 /* Error.swift */,
 				2EBE5127236735CA0083BC80 /* AppRouter.swift */,
 				2EBE5116236714AC0083BC80 /* UtilExtension.swift */,
+				2EBE51A22368A6E90083BC80 /* Executor.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				2F98765F216F775700CCA527 /* ReportViewController.swift in Sources */,
 				2F987649216F40BD00CCA527 /* DeviceViewModel.swift in Sources */,
 				2F98763A216E466700CCA527 /* RepositoryProviders.swift in Sources */,
+				2EBE51A32368A6E90083BC80 /* Executor.swift in Sources */,
 				2F98764B216F423600CCA527 /* ConnectionDevicePresenter.swift in Sources */,
 				2EBE5119236714EC0083BC80 /* Message.swift in Sources */,
 			);

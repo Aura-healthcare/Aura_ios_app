@@ -7,6 +7,7 @@ class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, vlB
     private var deviceFoundCallback: ((Device) -> Void)? = nil
     
     func initialize() {
+        manager?.bleReconnectEnabled = true
         manager?.delegate = self
         manager?.connectDelegate = self
         manager?.scanDelegate = self

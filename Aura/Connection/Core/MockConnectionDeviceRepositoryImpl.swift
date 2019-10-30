@@ -18,4 +18,8 @@ class MockConnectionDeviceRepositoryImpl : ConnectionDeviceRepository {
     func connect(deviceId: String) {
         /* do nothing */
     }
+    
+    func stopScan() {
+        /* do nothing */
+    }
 }

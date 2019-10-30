@@ -12,7 +12,7 @@ class RepositoryProviders {
     
     static func provideConnectionDeviceRepository() -> ConnectionDeviceRepository {
         #if DEBUG
-            return MockConnectionDeviceRepositoryImpl()
+            return ConnectionDeviceRepositoryImpl()
         #else
             return ConnectionDeviceRepositoryImpl()
         #endif
