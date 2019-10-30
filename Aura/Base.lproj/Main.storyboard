@@ -200,13 +200,6 @@
                                 <rect key="frame" x="292" y="166" width="20" height="20"/>
                                 <color key="color" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             </activityIndicatorView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMd-kO-hh2">
-                                <rect key="frame" x="149" y="161" width="116" height="30"/>
-                                <state key="normal" title="Démarrer le suivi"/>
-                                <connections>
-                                    <action selector="startTrackingAction:" destination="TiJ-LL-ZBX" eventType="touchUpInside" id="KZS-8b-BLm"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hf5-st-rDX">
                                 <rect key="frame" x="130" y="161" width="154" height="30"/>
                                 <state key="normal" title="Scanner les dispositifs">
@@ -222,7 +215,6 @@
                             <constraint firstItem="Qoe-2D-CN5" firstAttribute="bottom" secondItem="y7U-Ms-Svy" secondAttribute="bottom" id="84p-1u-NfN"/>
                             <constraint firstAttribute="top" secondItem="PLl-ji-mw4" secondAttribute="top" id="AMe-jc-e0A"/>
                             <constraint firstItem="PLl-ji-mw4" firstAttribute="centerX" secondItem="Qoe-2D-CN5" secondAttribute="centerX" id="Baz-8t-TdN"/>
-                            <constraint firstItem="yMd-kO-hh2" firstAttribute="centerX" secondItem="Qoe-2D-CN5" secondAttribute="centerX" id="EQI-sE-43H"/>
                             <constraint firstItem="Qoe-2D-CN5" firstAttribute="trailing" secondItem="mlO-Zp-LKg" secondAttribute="trailing" constant="5" id="F1T-xa-7dt"/>
                             <constraint firstItem="4i6-ul-Q3U" firstAttribute="leading" secondItem="hf5-st-rDX" secondAttribute="trailing" constant="8" id="HFK-yi-1vL"/>
                             <constraint firstItem="y7U-Ms-Svy" firstAttribute="top" secondItem="hf5-st-rDX" secondAttribute="bottom" constant="32" id="Lrz-j8-h9e"/>
@@ -234,7 +226,6 @@
                             <constraint firstItem="y7U-Ms-Svy" firstAttribute="leading" secondItem="Qoe-2D-CN5" secondAttribute="leading" constant="16" id="edO-ZQ-Qsj"/>
                             <constraint firstItem="hf5-st-rDX" firstAttribute="centerX" secondItem="Qoe-2D-CN5" secondAttribute="centerX" id="erC-ZS-65Q"/>
                             <constraint firstItem="mlO-Zp-LKg" firstAttribute="leading" secondItem="Qoe-2D-CN5" secondAttribute="leading" constant="5" id="fzE-e9-hDW"/>
-                            <constraint firstItem="yMd-kO-hh2" firstAttribute="top" secondItem="PLl-ji-mw4" secondAttribute="bottom" constant="32" id="ndX-pa-PBR"/>
                             <constraint firstItem="drS-Ae-KpB" firstAttribute="centerY" secondItem="PLl-ji-mw4" secondAttribute="centerY" id="uww-7m-4V9"/>
                             <constraint firstItem="hf5-st-rDX" firstAttribute="top" secondItem="PLl-ji-mw4" secondAttribute="bottom" constant="32" id="wKB-UJ-ObY"/>
                         </constraints>
@@ -243,7 +234,6 @@
                     <connections>
                         <outlet property="progressIndicatorView" destination="4i6-ul-Q3U" id="Qcq-41-eW0"/>
                         <outlet property="scanButton" destination="hf5-st-rDX" id="9l4-8G-Yjt"/>
-                        <outlet property="startTrackingButton" destination="yMd-kO-hh2" id="ClD-uf-pYJ"/>
                         <outlet property="tableView" destination="y7U-Ms-Svy" id="YlC-T8-YQZ"/>
                     </connections>
                 </viewController>

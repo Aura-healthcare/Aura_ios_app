@@ -29,6 +29,7 @@ class ConnectionDevicePresenterTests: XCTestCase {
         
         // THEN
         XCTAssert(view.invokedScanHasBeenLaunchedCount == 1)
+        XCTAssertTrue(repository.invokedStartScan)
         XCTAssertTrue(view.invokedDeviceFounded)
         XCTAssertEqual(view.invokedDeviceFoundedData,
                        DeviceViewModel(
@@ -54,6 +55,7 @@ class ConnectionDevicePresenterTests: XCTestCase {
         
         // THEN
         XCTAssertTrue(repository.invokedConnect)
+        XCTAssertEqual(view.invokedDeviceConnected, "FakeDevice")
     }
 }
 
@@ -62,39 +64,49 @@ class MockConnectionDeviceView: ConnectionDeviceView {
     var invokedScanHasBeenStoppedCount = 0
     var invokedDeviceFounded = false
     var invokedDeviceFoundedData : DeviceViewModel? = nil
+    var invokedDeviceConnected = ""
     
     func scanHasBeenLaunched() {
-        self.invokedScanHasBeenLaunchedCount += 1
+        invokedScanHasBeenLaunchedCount += 1
     }
     
     func scanHasBeenStopped() {
-        self.invokedScanHasBeenStoppedCount += 1
+        invokedScanHasBeenStoppedCount += 1
     }
     
     func devicesFounded(with device: DeviceViewModel) {
-        self.invokedDeviceFounded = true
-        self.invokedDeviceFoundedData = device
+        invokedDeviceFounded = true
+        invokedDeviceFoundedData = device
+    }
+    
+    func deviceConnected(named deviceName: String) {
+        invokedDeviceConnected = deviceName
     }
 }
 
 class MockConnectionDeviceTestRepository : ConnectionDeviceRepository {
+    var deviceFoundDelegate: ((Device) -> Void)?
+    var connectDelegate: ((String) -> Void)?
     
     var invokedInitialize = false
     var invokedConnect = false
+    var invokedStartScan = false
     var invokedStopScan = false
     
     func initialize() {
         invokedInitialize = true
     }
     
-    func getDevices(deviceFoundCallback: @escaping (Device) -> Void) {
-        deviceFoundCallback(
+    func startScan() {
+        invokedStartScan = true
+        deviceFoundDelegate?(
             Device(name: "FakeDevice", type: .HEART)
         )
     }
     
     func connect(deviceName: String) {
         invokedConnect = true
+        connectDelegate?("FakeDevice")
     }
     
     func stopScan() {
