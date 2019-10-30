@@ -1,11 +1,13 @@
 import Foundation
 import VivalnkSDK
 
-class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, vlBLEDelegates {
+class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, TrackingRepository, vlBLEDelegates {
     static let sharedInstance = ConnectionDeviceRepositoryImpl()
     private weak var manager = VVBleManager.shareInstance()
+    private var isConnecting = false
     var deviceFoundDelegate: ((Device) -> Void)?
     var connectDelegate: ((String) -> Void)?
+    var onReceiveDataDelegate: ((String) -> Void)?
     
     private override init() {
         super.init()
@@ -42,11 +44,13 @@ class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, vlB
     }
     
     func connect(deviceName: String) {
+        guard !isConnecting else { return }
         let device = VVToolUseClass()
         device.name = deviceName
         device.connectTimeout = 1000*30
         device.connectRetry = 1000
         manager?.connect(device)
+        isConnecting = true
      }
     
     func executeStartSampling() {
@@ -97,16 +101,19 @@ extension ConnectionDeviceRepositoryImpl : BluetoothScanListenerDelegate {
 
 extension ConnectionDeviceRepositoryImpl : BluetoothConnectListenerDelegate {
     func onReceiveData(_ Data: Any!) {
-        print(Data!)
+        print("onReceiveData: \(Data!)")
     }
     func onError(_ error: Any!) {
-        print(error!)
+        print("Error: \(error!)")
+        isConnecting = false
     }
     func onComplete(_ result: Any!) {
-        print(result!)
+        print("Result: \(result!)")
+        onReceiveDataDelegate?("\(result!)")
     }
     func onConnected(_ device: VVToolUseClass!) {
         print("Connected to device: \(String(describing: device.name))")
+        isConnecting = false
         connectDelegate?(device.name)
     }
 }

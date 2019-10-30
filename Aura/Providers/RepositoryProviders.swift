@@ -12,7 +12,16 @@ class RepositoryProviders {
     
     static func provideConnectionDeviceRepository() -> ConnectionDeviceRepository {
         #if DEBUG
-            return ConnectionDeviceRepositoryImpl.sharedInstance // TODO PBA
+            return MockConnectionDeviceRepositoryImpl()
+        #else
+            return ConnectionDeviceRepositoryImpl.sharedInstance
+        #endif
+        
+    }
+    
+    static func provideTrackingRepository() -> TrackingRepository {
+        #if DEBUG
+            return MockConnectionDeviceRepositoryImpl()
         #else
             return ConnectionDeviceRepositoryImpl.sharedInstance
         #endif

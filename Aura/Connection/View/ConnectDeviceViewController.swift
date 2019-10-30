@@ -29,7 +29,6 @@ class ConnectDeviceViewController : BaseViewController, ConnectionDeviceView {
     func scanHasBeenStopped(){
         scanButton.isEnabled = true
         progressIndicatorView.isHidden = true
-        progressIndicatorView.stopAnimating()
     }
     
     func devicesFounded(with device : DeviceViewModel) {

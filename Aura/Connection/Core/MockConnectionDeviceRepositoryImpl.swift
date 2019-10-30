@@ -1,8 +1,9 @@
 import Foundation
 
-class MockConnectionDeviceRepositoryImpl : ConnectionDeviceRepository {
+class MockConnectionDeviceRepositoryImpl : ConnectionDeviceRepository, TrackingRepository {
     var deviceFoundDelegate: ((Device) -> Void)?
     var connectDelegate: ((String) -> Void)?
+    var onReceiveDataDelegate: ((String) -> Void)?
     
     func initialize() {
         /* do nothing */
@@ -18,10 +19,17 @@ class MockConnectionDeviceRepositoryImpl : ConnectionDeviceRepository {
     }
     
     func connect(deviceName: String) {
-        /* do nothing */
+        connectDelegate?(deviceName)
     }
     
     func stopScan() {
         /* do nothing */
+    }
+    
+    func executeStartSampling() {
+        for i in 0...120 {
+            onReceiveDataDelegate?("This is mocked data ! Packet n°\(i) ...")
+            usleep(500)
+        }
     }
 }
