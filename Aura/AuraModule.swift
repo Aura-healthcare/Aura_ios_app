@@ -15,8 +15,9 @@ final class AuraModule {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: ConnectDeviceViewController.self)) as! ConnectDeviceViewController
         let presenter = ConnectionDevicePresenterImpl(
-            iView: ConnectionDeviceViewDecorator(viewController),
-            iRepository: RepositoryProviders.provideConnectionDeviceRepository()
+            view: ConnectionDeviceViewDecorator(viewController),
+            repository: RepositoryProviders.provideConnectionDeviceRepository(),
+            executor: Executor()
         )
         viewController.presenter = ConnectionDevicePresenterDecorator(presenter)
         viewController.router = router
@@ -27,7 +28,17 @@ final class AuraModule {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: TrackingViewController.self)) as! TrackingViewController
         viewController.router = router
-        return UINavigationController(rootViewController: viewController)
+        
+        let navigationController = BaseNavigationController(rootViewController: viewController)
+        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.isTranslucent = true
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController.navigationBar.titleTextAttributes = textAttributes
+        navigationController.navigationBar.topItem?.title = Message.TRACK.localized
+        
+        return navigationController
     }
     
     static func reportViewController() -> UIViewController {

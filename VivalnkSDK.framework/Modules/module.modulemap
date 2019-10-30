@@ -1,0 +1,6 @@
+framework module VivalnkSDK {
+  umbrella header "VivalnkSDK.h"
+
+  export *
+  module * { export * }
+}

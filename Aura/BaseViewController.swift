@@ -13,3 +13,9 @@ class BaseViewController : UIViewController {
       super.present(viewControllerToPresent, animated: flag, completion: completion)
     }
 }
+
+class BaseNavigationController : UINavigationController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+}

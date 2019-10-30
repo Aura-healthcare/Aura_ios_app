@@ -62,14 +62,14 @@
       </BuildableProductRunnable>
       <AdditionalOptions>
          <AdditionalOption
-            key = "MallocScribble"
+            key = "MallocStackLogging"
             value = ""
             isEnabled = "YES">
          </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"

@@ -22,14 +22,14 @@ class Question {
     }
 }
 
-protocol FormResult {
+protocol FormResult : class {
     func onSucceed()
     func onExit()
 }
 
 class ReportAdvancedViewController : UIViewController, UITextViewDelegate {
     var questions : [Question]!
-    var delegate: FormResult?
+    weak var delegate: FormResult?
     
     @IBOutlet weak var segmentio : Segmentio!
     @IBOutlet weak var yesNoSegmentedControl : UISegmentedControl!
