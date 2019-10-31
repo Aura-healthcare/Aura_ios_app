@@ -1,10 +1,17 @@
 import Foundation
 import VivalnkSDK
 
-class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, vlBLEDelegates {
-    
+class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, TrackingRepository, vlBLEDelegates {
+    static let sharedInstance = ConnectionDeviceRepositoryImpl()
     private weak var manager = VVBleManager.shareInstance()
-    var deviceFoundCallback: ((Device) -> Void)? = nil
+    private var isConnecting = false
+    var deviceFoundDelegate: ((Device) -> Void)?
+    var connectDelegate: ((String) -> Void)?
+    var onReceiveDataDelegate: ((String) -> Void)?
+    
+    private override init() {
+        super.init()
+    }
     
     func initialize() {
         manager?.bleReconnectEnabled = true
@@ -23,7 +30,7 @@ class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, vlB
          4 | PoweredOff
          5 | PoweredOn
          */
-        print (String(describing: statusCode))
+        print(String(describing: statusCode))
     }
     
     func startScan() {
@@ -37,12 +44,21 @@ class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, vlB
     }
     
     func connect(deviceName: String) {
+        guard !isConnecting else { return }
         let device = VVToolUseClass()
         device.name = deviceName
         device.connectTimeout = 1000*30
         device.connectRetry = 1000
         manager?.connect(device)
+        isConnecting = true
      }
+    
+    func executeStartSampling() {
+        let request = VitalCommand()
+        request.vitalType = .vital_startSampling
+        request.timeOut = 30000
+        manager?.send(request)
+    }
 }
 
 extension ConnectionDeviceRepositoryImpl : BluetoothStateListenerDelegate {
@@ -74,7 +90,7 @@ extension ConnectionDeviceRepositoryImpl : BluetoothScanListenerDelegate {
     
     func onDeviceFound(_ device: VVToolUseClass!) {
         print("Bluetooth device found: \(String(describing: device.name))")
-        deviceFoundCallback?(
+        deviceFoundDelegate?(
             Device(
                 name: device.name,
                 type: .HEART
@@ -84,7 +100,20 @@ extension ConnectionDeviceRepositoryImpl : BluetoothScanListenerDelegate {
 }
 
 extension ConnectionDeviceRepositoryImpl : BluetoothConnectListenerDelegate {
+    func onReceiveData(_ Data: Any!) {
+        print("onReceiveData: \(Data!)")
+    }
+    func onError(_ error: Any!) {
+        print("Error: \(error!)")
+        isConnecting = false
+    }
+    func onComplete(_ result: Any!) {
+        print("Result: \(result!)")
+        onReceiveDataDelegate?("\(result!)")
+    }
     func onConnected(_ device: VVToolUseClass!) {
         print("Connected to device: \(String(describing: device.name))")
+        isConnecting = false
+        connectDelegate?(device.name)
     }
 }

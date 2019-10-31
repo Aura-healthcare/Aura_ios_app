@@ -27,6 +27,11 @@ final class AuraModule {
     static func trackingViewController() -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: TrackingViewController.self)) as! TrackingViewController
+        let presenter = TrackingPresenterImpl(
+            view: TrackingViewDecorator(viewController),
+            repository: RepositoryProviders.provideTrackingRepository()
+        )
+        viewController.presenter = TrackingPresenterDecorator(presenter)
         viewController.router = router
         
         let navigationController = BaseNavigationController(rootViewController: viewController)

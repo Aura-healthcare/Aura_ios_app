@@ -17,6 +17,10 @@ final class ConnectionDeviceViewDecorator : ConnectionDeviceView{
     func devicesFounded(with device: DeviceViewModel) {
         DispatchQueue.main.async { [weak self] in self?.view.devicesFounded(with: device) }
     }
+    
+    func deviceConnected(named deviceName: String) {
+        DispatchQueue.main.async { [weak self] in self?.view.deviceConnected(named: deviceName) }
+    }
 }
 
 final class ConnectionDevicePresenterDecorator : ConnectionDevicePresenter {

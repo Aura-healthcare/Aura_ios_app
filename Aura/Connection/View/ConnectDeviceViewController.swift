@@ -4,7 +4,6 @@ import UIKit
 class ConnectDeviceViewController : BaseViewController, ConnectionDeviceView {
     @IBOutlet weak var progressIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var scanButton: UIButton!
-    @IBOutlet weak var startTrackingButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     private var devices = [DeviceViewModel]()
     var presenter : ConnectionDevicePresenter!
@@ -21,10 +20,6 @@ class ConnectDeviceViewController : BaseViewController, ConnectionDeviceView {
         presenter.scan()
     }
     
-    @IBAction func startTrackingAction(_ sender: Any) {
-        router.go(from: self, to: .tracking)
-    }
-    
     func scanHasBeenLaunched(){
         scanButton.isEnabled = false
         progressIndicatorView.isHidden = false
@@ -34,16 +29,19 @@ class ConnectDeviceViewController : BaseViewController, ConnectionDeviceView {
     func scanHasBeenStopped(){
         scanButton.isEnabled = true
         progressIndicatorView.isHidden = true
-        progressIndicatorView.stopAnimating()
     }
     
     func devicesFounded(with device : DeviceViewModel) {
         self.devices.append(device)
         self.tableView.reloadData()
-        self.scanButton.isHidden = true
-        self.startTrackingButton.isHidden = false
     }
     
+    func deviceConnected(named deviceName: String) {
+        scanButton.setTitle("Scanner les dispositifs", for: UIControl.State.disabled)
+        scanButton.isEnabled = true
+        progressIndicatorView.isHidden = true
+        router.go(from: self, to: .tracking)
+    }
 }
 
 extension ConnectDeviceViewController : UITableViewDataSource {
@@ -74,6 +72,9 @@ extension ConnectDeviceViewController : UITableViewDataSource {
 
 extension ConnectDeviceViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        progressIndicatorView.isHidden = false
+        scanButton.isEnabled = false
+        scanButton.setTitle("Connexion en cours", for: UIControl.State.disabled)
         let device = devices[indexPath.row]
         presenter.didSelect(device: device)
     }

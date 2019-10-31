@@ -11,10 +11,12 @@ protocol ConnectionDeviceView : class {
     func scanHasBeenLaunched()
     func scanHasBeenStopped()
     func devicesFounded(with device : DeviceViewModel)
+    func deviceConnected(named deviceName: String)
 }
 
 protocol ConnectionDeviceRepository {
-    var deviceFoundCallback: ((Device) -> Void)? { get set }
+    var deviceFoundDelegate: ((Device) -> Void)? { get set }
+    var connectDelegate: ((String) -> Void)? { get set }
     func initialize()
     func startScan()
     func connect(deviceName: String)
@@ -40,7 +42,7 @@ class ConnectionDevicePresenterImpl : ConnectionDevicePresenter {
     
     func scan() {
         decorator.scanHasBeenLaunched()
-        repository.deviceFoundCallback = { [weak self] newDevice in
+        repository.deviceFoundDelegate = { [weak self] newDevice in
             self?.decorator.devicesFounded(with:
                 DeviceViewModel(
                     name: newDevice.name,
@@ -58,6 +60,9 @@ class ConnectionDevicePresenterImpl : ConnectionDevicePresenter {
     }
     
     func didSelect(device: DeviceViewModel) {
+        repository.connectDelegate = { [weak self] deviceName in
+            self?.decorator.deviceConnected(named: deviceName)
+        }
         repository.connect(deviceName: device.name)
     }
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		163E0882C7FE63CCCC2590D3 /* Pods_Aura.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDDE9B85966F25C8A09B91CD /* Pods_Aura.framework */; };
+		2E4F71662369E4C7001FDA69 /* TrackingPresenterImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F71652369E4C7001FDA69 /* TrackingPresenterImplTests.swift */; };
+		2E4F71682369E672001FDA69 /* TrackingDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F71672369E672001FDA69 /* TrackingDecorator.swift */; };
 		2EBE51142366F2CA0083BC80 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE51132366F2CA0083BC80 /* Colors.swift */; };
 		2EBE5117236714AC0083BC80 /* UtilExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5116236714AC0083BC80 /* UtilExtension.swift */; };
 		2EBE5119236714EC0083BC80 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5118236714EC0083BC80 /* Message.swift */; };
@@ -77,6 +79,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E4F71652369E4C7001FDA69 /* TrackingPresenterImplTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingPresenterImplTests.swift; sourceTree = "<group>"; };
+		2E4F71672369E672001FDA69 /* TrackingDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingDecorator.swift; sourceTree = "<group>"; };
 		2EBE51132366F2CA0083BC80 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2EBE5116236714AC0083BC80 /* UtilExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilExtension.swift; sourceTree = "<group>"; };
 		2EBE5118236714EC0083BC80 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -153,6 +157,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E4F71642369E40C001FDA69 /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				2E4F71652369E4C7001FDA69 /* TrackingPresenterImplTests.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
 		2EBE51122366F2B60083BC80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				2F98765B216F766800CCA527 /* TrackingPresenter.swift */,
+				2E4F71672369E672001FDA69 /* TrackingDecorator.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -310,6 +323,7 @@
 		2F819A94216B83D100E8628F /* AuraTests */ = {
 			isa = PBXGroup;
 			children = (
+				2E4F71642369E40C001FDA69 /* Tracking */,
 				2F987655216F6A7200CCA527 /* Connection */,
 				2F987654216F6A5F00CCA527 /* Authentication */,
 				2F819A97216B83D100E8628F /* Info.plist */,
@@ -580,6 +594,7 @@
 				2F987664216F8EDD00CCA527 /* ReportAdvancedViewController.swift in Sources */,
 				2F987635216E067400CCA527 /* BaseViewController.swift in Sources */,
 				2F987647216F3F7400CCA527 /* DeviceTableViewCell.swift in Sources */,
+				2E4F71682369E672001FDA69 /* TrackingDecorator.swift in Sources */,
 				2F819A81216B83CF00E8628F /* AppDelegate.swift in Sources */,
 				2EBE51142366F2CA0083BC80 /* Colors.swift in Sources */,
 				2F98765C216F766800CCA527 /* TrackingPresenter.swift in Sources */,
@@ -603,6 +618,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F987645216F35F100CCA527 /* MockSignInView.swift in Sources */,
+				2E4F71662369E4C7001FDA69 /* TrackingPresenterImplTests.swift in Sources */,
 				2F987657216F6A8C00CCA527 /* ConnectionDevicePresenterTests.swift in Sources */,
 				2F987643216F34EE00CCA527 /* MockSignInRepository.swift in Sources */,
 				2F819A96216B83D100E8628F /* SignInPresenterTests.swift in Sources */,
