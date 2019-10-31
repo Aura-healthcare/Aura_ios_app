@@ -7,7 +7,7 @@ final class TrackingViewDecorator : TrackingView{
     }
     
     func printNewLine(_ line: String) {
-        DispatchQueue.main.async { [weak self] in self?.view.printNewLine(line) }
+        DispatchQueue.main.async { self.view.printNewLine(line) }
     }
 }
 
@@ -18,8 +18,8 @@ final class TrackingPresenterDecorator : TrackingPresenter {
     }
     
     func viewDidLoad() {
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.presenter.viewDidLoad()
+        DispatchQueue.global(qos: .background).async {
+            self.presenter.viewDidLoad()
         }
     }
 }

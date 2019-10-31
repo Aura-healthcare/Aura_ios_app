@@ -7,19 +7,19 @@ final class ConnectionDeviceViewDecorator : ConnectionDeviceView{
     }
     
     func scanHasBeenStopped() {
-        DispatchQueue.main.async { [weak self] in self?.view.scanHasBeenStopped() }
+        DispatchQueue.main.async { self.view.scanHasBeenStopped() }
     }
     
     func scanHasBeenLaunched() {
-        DispatchQueue.main.async { [weak self] in self?.view.scanHasBeenLaunched() }
+        DispatchQueue.main.async { self.view.scanHasBeenLaunched() }
     }
     
     func devicesFounded(with device: DeviceViewModel) {
-        DispatchQueue.main.async { [weak self] in self?.view.devicesFounded(with: device) }
+        DispatchQueue.main.async { self.view.devicesFounded(with: device) }
     }
     
     func deviceConnected(named deviceName: String) {
-        DispatchQueue.main.async { [weak self] in self?.view.deviceConnected(named: deviceName) }
+        DispatchQueue.main.async { self.view.deviceConnected(named: deviceName) }
     }
 }
 
@@ -30,20 +30,20 @@ final class ConnectionDevicePresenterDecorator : ConnectionDevicePresenter {
     }
     
     func viewDidLoad() {
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.presenter.viewDidLoad()
+        DispatchQueue.global(qos: .background).async {
+            self.presenter.viewDidLoad()
         }
     }
     
     func scan() {
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.presenter.scan()
+        DispatchQueue.global(qos: .background).async {
+            self.presenter.scan()
         }
     }
     
     func didSelect(device: DeviceViewModel) {
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.presenter.didSelect(device: device)
+        DispatchQueue.global(qos: .background).async {
+            self.presenter.didSelect(device: device)
         }
     }
 }
