@@ -1,5 +1,5 @@
 import Foundation
-import VivalnkSDK
+import VivaBT
 
 class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, TrackingRepository, vlBLEDelegates {
     static let sharedInstance = ConnectionDeviceRepositoryImpl()
@@ -36,7 +36,7 @@ class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, Tra
     func startScan() {
         let option = VVToolUseClass()
         option.scanTimeout = 1000*60
-        manager?.startScan(option, with: ScanDeviceType.VitalDevice)
+        manager?.startScan(option, with: .CardiacDevice)
     }
     
     func stopScan() {
@@ -48,16 +48,15 @@ class ConnectionDeviceRepositoryImpl : NSObject, ConnectionDeviceRepository, Tra
         let device = VVToolUseClass()
         device.name = deviceName
         device.connectTimeout = 1000*30
-        device.connectRetry = 1000
         manager?.connect(device)
         isConnecting = true
      }
     
     func executeStartSampling() {
-        let request = VitalCommand()
-        request.vitalType = .vital_startSampling
-        request.timeOut = 30000
-        manager?.send(request)
+        let cardiacCommand = CardiacCommand()
+        cardiacCommand.cardiacType = .cardiac_eraseFlash
+        cardiacCommand.timeOut = 1000
+        manager?.send(cardiacCommand)
     }
 }
 
@@ -102,6 +101,9 @@ extension ConnectionDeviceRepositoryImpl : BluetoothScanListenerDelegate {
 extension ConnectionDeviceRepositoryImpl : BluetoothConnectListenerDelegate {
     func onReceiveData(_ Data: Any!) {
         print("onReceiveData: \(Data!)")
+    }
+    func onHeartRateUpdated(_ result: Any!) {
+        print("onHeartRateUpdated: \(result!)")
     }
     func onError(_ error: Any!) {
         print("Error: \(error!)")

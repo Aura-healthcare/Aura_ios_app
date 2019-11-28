@@ -19,12 +19,12 @@
 		2EBE5126236734F50083BC80 /* AuthenticationProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5125236734F50083BC80 /* AuthenticationProviders.swift */; };
 		2EBE5128236735CA0083BC80 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE5127236735CA0083BC80 /* AppRouter.swift */; };
 		2EBE516C236856BE0083BC80 /* ConnectionDeviceRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE516B236856BD0083BC80 /* ConnectionDeviceRepositoryImpl.swift */; };
-		2EBE516E236856EE0083BC80 /* VivalnkSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBE516D236856EE0083BC80 /* VivalnkSDK.framework */; };
-		2EBE516F236856EE0083BC80 /* VivalnkSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBE516D236856EE0083BC80 /* VivalnkSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2EBE519D236863CF0083BC80 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE519C236863CF0083BC80 /* main.mm */; };
 		2EBE519F236864900083BC80 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBE519E236864900083BC80 /* CoreBluetooth.framework */; };
 		2EBE51A1236865FC0083BC80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EBE51A0236865FC0083BC80 /* CoreLocation.framework */; };
 		2EBE51A32368A6E90083BC80 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE51A22368A6E90083BC80 /* Executor.swift */; };
+		2EF610472387DD9E000336F1 /* VivaBT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF610442387DC10000336F1 /* VivaBT.framework */; };
+		2EF610482387DD9E000336F1 /* VivaBT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF610442387DC10000336F1 /* VivaBT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2F819A81216B83CF00E8628F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F819A80216B83CF00E8628F /* AppDelegate.swift */; };
 		2F819A86216B83CF00E8628F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F819A84216B83CF00E8628F /* Main.storyboard */; };
 		2F819A88216B83D000E8628F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F819A87216B83D000E8628F /* Assets.xcassets */; };
@@ -55,6 +55,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2EF610432387DC10000336F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2EF6103F2387DC0F000336F1 /* VivaBT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2EF610342387DC0F000336F1;
+			remoteInfo = VivaBT;
+		};
 		2F819A92216B83D100E8628F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2F819A75216B83CF00E8628F /* Project object */;
@@ -65,13 +72,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2EBE5170236856EE0083BC80 /* Embed Frameworks */ = {
+		2EF610492387DD9E000336F1 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2EBE516F236856EE0083BC80 /* VivalnkSDK.framework in Embed Frameworks */,
+				2EF610482387DD9E000336F1 /* VivaBT.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,12 +97,12 @@
 		2EBE5125236734F50083BC80 /* AuthenticationProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationProviders.swift; sourceTree = "<group>"; };
 		2EBE5127236735CA0083BC80 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		2EBE516B236856BD0083BC80 /* ConnectionDeviceRepositoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionDeviceRepositoryImpl.swift; sourceTree = "<group>"; };
-		2EBE516D236856EE0083BC80 /* VivalnkSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VivalnkSDK.framework; sourceTree = "<group>"; };
 		2EBE519B236863CE0083BC80 /* Aura-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Aura-Bridging-Header.h"; sourceTree = "<group>"; };
 		2EBE519C236863CF0083BC80 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		2EBE519E236864900083BC80 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		2EBE51A0236865FC0083BC80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2EBE51A22368A6E90083BC80 /* Executor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
+		2EF6103F2387DC0F000336F1 /* VivaBT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VivaBT.xcodeproj; path = VivaBT/VivaBT.xcodeproj; sourceTree = "<group>"; };
 		2F819A7D216B83CF00E8628F /* Aura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F819A80216B83CF00E8628F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F819A85216B83CF00E8628F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,10 +146,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF610472387DD9E000336F1 /* VivaBT.framework in Frameworks */,
 				2EBE51A1236865FC0083BC80 /* CoreLocation.framework in Frameworks */,
 				163E0882C7FE63CCCC2590D3 /* Pods_Aura.framework in Frameworks */,
 				2EBE519F236864900083BC80 /* CoreBluetooth.framework in Frameworks */,
-				2EBE516E236856EE0083BC80 /* VivalnkSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,9 +284,18 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		2EF610402387DC0F000336F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2EF610442387DC10000336F1 /* VivaBT.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2F819A74216B83CF00E8628F = {
 			isa = PBXGroup;
 			children = (
+				2EF6103F2387DC0F000336F1 /* VivaBT.xcodeproj */,
 				2F819A7F216B83CF00E8628F /* Aura */,
 				2F819A94216B83D100E8628F /* AuraTests */,
 				2F819A7E216B83CF00E8628F /* Products */,
@@ -409,7 +425,6 @@
 			children = (
 				2EBE51A0236865FC0083BC80 /* CoreLocation.framework */,
 				2EBE519E236864900083BC80 /* CoreBluetooth.framework */,
-				2EBE516D236856EE0083BC80 /* VivalnkSDK.framework */,
 				FDDE9B85966F25C8A09B91CD /* Pods_Aura.framework */,
 				4345FBFDBE43BBB19FC79296 /* Pods_AuraTests.framework */,
 			);
@@ -428,7 +443,7 @@
 				2F819A7A216B83CF00E8628F /* Frameworks */,
 				2F819A7B216B83CF00E8628F /* Resources */,
 				8F5D8083A1624A522383F889 /* [CP] Embed Pods Frameworks */,
-				2EBE5170236856EE0083BC80 /* Embed Frameworks */,
+				2EF610492387DD9E000336F1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -490,6 +505,12 @@
 			mainGroup = 2F819A74216B83CF00E8628F;
 			productRefGroup = 2F819A7E216B83CF00E8628F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2EF610402387DC0F000336F1 /* Products */;
+					ProjectRef = 2EF6103F2387DC0F000336F1 /* VivaBT.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2F819A7C216B83CF00E8628F /* Aura */,
@@ -497,6 +518,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2EF610442387DC10000336F1 /* VivaBT.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VivaBT.framework;
+			remoteRef = 2EF610432387DC10000336F1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2F819A7B216B83CF00E8628F /* Resources */ = {
@@ -706,7 +737,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -760,7 +791,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -780,10 +811,10 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = Aura/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -809,10 +840,10 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = Aura/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
